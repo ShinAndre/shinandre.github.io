@@ -1,0 +1,78 @@
+@use "config";
+
+.contact {
+  height: 100%;
+  padding-top: 32vh;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  background:
+    linear-gradient(
+      to right,
+      rgba(config.$primary-color, 0.9),
+      rgba(config.$primary-color, 0.3)
+    ),
+    url("../img/model-1.jpg") center top;
+  background-size: cover;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    position: initial;
+    margin-top: 2rem;
+  }
+  .form {
+    margin: auto;
+  }
+  .contact-item {
+    background-color: rgba(config.$primary-color, 0.8);
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    border-radius: 5%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer {
+    position: static !important;
+  }
+  .form-control{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+  }
+   .form-label{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .form-select{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+  }
+  .form-check{
+    width: 50%;
+    margin: auto;
+    
+  }
+  .btn {
+    margin: auto;
+    display: flex;
+  }  
+  .contact {
+    overflow-y: visible;
+  }
+}

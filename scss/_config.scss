@@ -1,0 +1,35 @@
+@use "sass:color";
+$primary-color: #272727;
+$secondary-color: #06e8f8;
+$transition-ease: .5s ease;
+$color-white: white;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@function set-text-color($color) {
+  @if (color.channel($color, "lightness", $space: hsl) > 40%) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+@mixin media-md {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin media-lg {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin media-xl {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}

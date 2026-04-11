@@ -1,0 +1,67 @@
+@use "config";
+
+.mynav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  opacity: 0.98;
+  visibility: hidden;
+
+  &.open {
+    visibility: visible;
+  }
+
+  .mymenu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: config.$primary-color;
+    list-style-type: none;
+    padding-right: 1rem;
+
+    &__link {
+      display: inline-block;
+      font-size: 2rem;
+      text-transform: uppercase;
+      padding: 2rem 0;
+      font-weight: 300;
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        color: config.$secondary-color;
+        transition: config.$transition-ease;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 4 {
+  .mymenu-nav__item:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.15s;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 767px) {
+  .mymenu-nav {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    transition: height config.$transition-ease;
+  }
+  .mymenu-nav:hover {
+    height: 50vh;
+  }
+  .mymenu-nav__item {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mymenu-nav {
+    height: 10vh;
+  }
+}
