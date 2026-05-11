@@ -9,8 +9,21 @@
 body {
   background: config.$primary-color;
   height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: config.$font-family;
   line-height: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background:
+    linear-gradient(
+      to right,
+      rgba(config.$primary-color, 0.9),
+      rgba(config.$primary-color, 0.3)
+    ),
+    url("../img/model-1.jpg") center top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -45,11 +58,6 @@ main {
   height: 100%;
   width: 100%;
 
-  .social-icons {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-  }
   a {
   padding: 0.4rem;
   transition: config.$transition-ease;
@@ -60,14 +68,4 @@ main {
     color: config.$secondary-color;
   }
 }
-}
-
-footer {
-  font-size: 1rem;
-  position: fixed;
-  bottom: 0.4rem;
-  right: 1rem;
-  text-align: right;
-  padding: 1rem;
-  color: config.set-text-color(config.$primary-color);
 }

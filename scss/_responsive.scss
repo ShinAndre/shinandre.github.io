@@ -2,8 +2,6 @@
 
 @include config.media-md {
   .mynav {
-    visibility: visible;
-
     &__item {
       display: inline;
       padding-right: 1.5rem;
@@ -41,7 +39,6 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  
 }
 
 @include config.media-xl {

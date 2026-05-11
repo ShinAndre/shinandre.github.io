@@ -1,16 +1,15 @@
 @use "config";
 
+.menu-toggle {
+  display: none;
+}
+
 .mynav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   opacity: 0.98;
-  visibility: hidden;
-
-  &.open {
-    visibility: visible;
-  }
 
   .mymenu-nav {
     display: flex;
@@ -39,27 +38,71 @@
   }
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.4rem;
+  cursor: pointer;
+  position: fixed;
+  top: 1.4rem;
+  right: 1.5rem;
+  z-index: 10;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: config.$transition-ease;
+  }
+}
+
 @for $i from 1 through 4 {
   .mymenu-nav__item:nth-child(#{$i}) {
     transition-delay: ($i * 0.1s) + 0.15s;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (min-width: 0) and (max-width: 767px) {
+
+  .hamburger {
+    display: flex;
+  }
+
   .mymenu-nav {
     visibility: visible;
-    display: flex;
     flex-direction: column;
-    height: 10vh;
-    transition: height config.$transition-ease;
+    max-height: 0;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height config.$transition-ease;
   }
-  .mymenu-nav:hover {
-    height: 50vh;
-  }
+
   .mymenu-nav__item {
     width: 100%;
     text-align: center;
+    padding: 0.3rem 0;
+  }
+
+  .menu-toggle:checked ~ .mymenu-nav {
+    max-height: 93vh;
+  }
+  .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(0.7rem) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-0.7rem) rotate(-45deg);
   }
 }
+
 @media screen and (min-width: 768px) {
   .mymenu-nav {
     height: 10vh;

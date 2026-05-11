@@ -3,6 +3,7 @@ $primary-color: #272727;
 $secondary-color: #06e8f8;
 $transition-ease: .5s ease;
 $color-white: white;
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 * {
   box-sizing: border-box;
@@ -17,7 +18,6 @@ $color-white: white;
     @return #fff;
   }
 }
-
 @mixin media-md {
   @media screen and (min-width: 768px) {
     @content;

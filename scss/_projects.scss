@@ -6,14 +6,6 @@
   &__bio-image {
     height: 30vh;
     width: 100%;
-    background:
-      linear-gradient(
-        to right,
-        rgba(config.$primary-color, 0.9),
-        rgba(config.$primary-color, 0.3)
-      ),
-      url("../img/model-1.jpg") center top;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,12 +80,36 @@
       );
     }
   }
-  .social-icons {
-    display: flex;
-    flex-direction: column;
-  }
 
-  footer {
-    transform: rotate(90deg) translate(-3rem, -5rem);
+  @media screen and (min-width: 320px) and (max-width: 425px){
+    .social-icons-project {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      top: 35rem;
+    }
+
+    .footer-project {
+      position: fixed;
+      color: config.set-text-color(config.$primary-color);
+      transform: rotate(90deg) translate(-3rem, -5rem);
+      top: 44rem;
+      right: 2rem;
+    }
+    .projects__items {
+      grid-template-columns: repeat(1,1fr);
+    }
+  }
+  @media screen and (min-width: 426px){
+    .social-icons-project {
+      position: absolute;
+      bottom: -10rem;
+    }
+    .footer-project {
+      position: absolute;
+      bottom: -10rem;
+      right: 2rem;
+      color: config.set-text-color(config.$primary-color);
+    }
   }
 }
